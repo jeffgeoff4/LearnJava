@@ -1,0 +1,64 @@
+// Abstract class
+abstract class Shape {
+    // Common attribute
+    protected String color;
+
+    // Constructor
+    public Shape(String color) {
+        this.color = color;
+    }
+
+    // Abstract method to calculate area (to be implemented by subclasses)
+    public abstract double area();
+
+    // Concrete method
+    public void displayInfo() {
+        System.out.println("Color: " + color);
+    }
+}
+
+// Concrete subclass 1
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(String color, double radius) {
+        super(color);
+        this.radius = radius;
+    }
+
+    @Override
+    public double area() {
+        return Math.PI * radius * radius;
+    }
+}
+
+// Concrete subclass 2
+class Rectangle extends Shape {
+    private double length;
+    private double width;
+
+    public Rectangle(String color, double length, double width) {
+        super(color);
+        this.length = length;
+        this.width = width;
+    }
+
+    @Override
+    public double area() {
+        return length * width;
+    }
+}
+
+public class abstraction {
+    public static void main(String[] args) {
+        Circle circle = new Circle("Red", 5.0);
+        Rectangle rectangle = new Rectangle("Blue", 4.0, 6.0);
+
+        // Display information and calculate areas
+        circle.displayInfo();
+        System.out.println("Circle Area: " + circle.area());
+
+        rectangle.displayInfo();
+        System.out.println("Rectangle Area: " + rectangle.area());
+    }
+}
